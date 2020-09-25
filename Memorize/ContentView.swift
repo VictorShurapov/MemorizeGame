@@ -20,13 +20,12 @@ struct ContentView: View {
         }
         .foregroundColor(.orange)
         .padding() 
-        .font(Font.largeTitle)
+        .font(emojiMemoryGame.cards.count / 2 > 4 ? .callout : .largeTitle)
     }
 }
 
 struct CardView: View {
     var card: MemoryGame<String>.Card
-    
     var body: some View {
         ZStack {
             if card.isFaceUp {
@@ -37,6 +36,7 @@ struct CardView: View {
                 RoundedRectangle(cornerRadius: 10).fill()
             }
         }
+        .aspectRatio(2/3, contentMode: .fit)
     }
 }
 
